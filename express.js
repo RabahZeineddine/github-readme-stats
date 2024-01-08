@@ -7,10 +7,13 @@ import gistCard from "./api/gist.js";
 import express from "express";
 
 const app = express();
-app.listen(process.env.port || 9000);
+const port = process.env.PORT || 9000;
+app.listen(port);
 
 app.get("/", statsCard);
 app.get("/pin", repoCard);
 app.get("/top-langs", langCard);
 app.get("/wakatime", wakatimeCard);
 app.get("/gist", gistCard);
+
+console.log(`Server started at port ${port}`);
